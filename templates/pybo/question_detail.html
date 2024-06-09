@@ -13,6 +13,7 @@
     {% endif %}
     <h2 class="border-bottom py-2">{{ question.subject }}</h2>
         <p>조회수: {{ question.view_count }}</p> <!-- 조회수 -->
+        <p>이 질문은 {{ question.edit_count }}번 수정되었습니다.</p>  <!-- 수정 횟수 표시 -->
     <div class="row my-3">
         <div class="col-1"> <!-- 추천영역 -->
             <div class="bg-light text-center p-3 border font-weight-bolder mb-1">{{question.voter.count}}</div>
@@ -90,6 +91,7 @@
                         <div class="badge badge-light p-2 text-left mx-3">
                             <div class="mb-2">modified at</div>
                             <div>{{ answer.modify_date }}</div>
+                            <p>이 답변은 {{ answer.edit_count }}번 수정되었습니다.</p>  <!-- 답변 수정 횟수 표시 -->
                         </div>
                         {% endif %}
                         <div class="badge badge-light p-2 text-left">

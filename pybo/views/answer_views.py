@@ -44,6 +44,7 @@ def answer_modify(request, answer_id):
             answer = form.save(commit=False)
             answer.author = request.user
             answer.modify_date = timezone.now()
+            answer.edit_count += 1  # 수정 횟수 증가
             answer.save()
             return redirect('pybo:detail', question_id=answer.question.id)
     else:
