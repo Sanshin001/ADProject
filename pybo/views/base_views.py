@@ -39,5 +39,7 @@ def detail(request, question_id):
     pybo 내용 출력
     """
     question = get_object_or_404(Question, pk=question_id)
+    question.view_count += 1  # 조회수 증가
     context = {'question': question}
+    question.save()
     return render(request, 'pybo/question_detail.html', context)

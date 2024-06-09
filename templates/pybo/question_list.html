@@ -20,8 +20,9 @@
         <tr class="text-center thead-dark">
             <th>번호</th>
             <th>추천</th>
-            <th style="width:50%">제목</th>
+            <th style="width:35%">제목</th>
             <th>글쓴이</th>
+            <th>조회수</th>
             <th>작성일시</th>
         </tr>
         </thead>
@@ -45,6 +46,7 @@
                 {% endif %}
             </td>
             <td>{{ question.author.username }}</td>  <!-- 글쓴이 추가 -->
+            <td>{{ question.view_count }}</td>
             <td>{{ question.create_date }}</td>
         </tr>
         {% endfor %}
@@ -104,7 +106,6 @@
 </form>
 {% endblock %}
 
-{% block script %}
 <script type='text/javascript'>
 const page_elements = document.getElementsByClassName("page-link");
 Array.from(page_elements).forEach(function(element) {
@@ -120,4 +121,3 @@ btn_search.addEventListener('click', function() {
     document.getElementById('searchForm').submit();
 });
 </script>
-{% endblock %}
